@@ -12,27 +12,32 @@ import java.util.ArrayList;
  * @author Juan carlos
  */
 public class CCuenta {
-    private int saldo;
+    private final int limite=0;
+    private double saldo;
     private String fch;
     private ArrayList<CTarjeta> alTarjetas;
 
-    public CCuenta(int saldo, String fch) {
+    public CCuenta(double saldo, String fch) {
         this.saldo = saldo;
         this.fch = fch;
     }
 
-    public CCuenta(int saldo, String fch, ArrayList<CTarjeta> alTarjetas) {
+    public CCuenta(double saldo, String fch, ArrayList<CTarjeta> alTarjetas) {
         this.saldo = saldo;
         this.fch = fch;
         this.alTarjetas = alTarjetas;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public int getLimite() {
+        return limite;
     }
 
     public String getFch() {

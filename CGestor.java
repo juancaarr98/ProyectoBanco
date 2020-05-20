@@ -18,7 +18,7 @@ public class CGestor {
         CTarjeta t= new CTarjeta(limt_cajero,limt_on,codigo);
         cu.getAlTarjetas().add(t);
     }
-    public void mvCrearCuenta(CCliente a,int dinero,String fecha_alta){
+    public void mvCrearCuenta(CCliente a, double dinero,String fecha_alta){
         CCuenta c=new CCuenta(dinero,fecha_alta);
         a.getAlCuentas().add(c);
         System.out.println("Esta cuennta, todavia no tiene tarjetas");

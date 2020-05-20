@@ -102,7 +102,10 @@ public class CCliente {
         return "Para el cliente: " + "nombre=" + nombre + ", aplellido=" + aplellido + ", dir=" + dir + ", nif=" + nif + ", edad=" + edad + ", tf=" + tf + ", alCuentas=" + alCuentas + '}';
     }
     
-    public void mvInsertar(int cantidad){}
+    public void mvInsertar(CCliente c, int nro_cuent,double cantidad){
+        double saldo_final=c.getAlCuentas().get(nro_cuent).getSaldo() +cantidad;
+        c.getAlCuentas().get(nro_cuent).setSaldo(saldo_final); 
+    }
     public void  mcSacar(int cantidad){}
     
 }
