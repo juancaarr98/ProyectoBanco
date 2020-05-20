@@ -50,6 +50,9 @@ public class CCuenta {
     public void setAlTarjetas(ArrayList<CTarjeta> alTarjetas) {
         this.alTarjetas = alTarjetas;
     }
-    public double mdSalarioMedio(){}
+    public double mdSalarioMedio(){
+        double resultado= Math.random()*2600+1500;
+        return resultado;
+    }
     
 }
