@@ -102,10 +102,38 @@ public class CCliente {
         return "Para el cliente: " + "nombre=" + nombre + ", aplellido=" + aplellido + ", dir=" + dir + ", nif=" + nif + ", edad=" + edad + ", tf=" + tf + ", alCuentas=" + alCuentas + '}';
     }
     
-    public void mvInsertar(CCliente c, int nro_cuent,double cantidad){
+    public double mvInsertar(CCliente c, int nro_cuent,double cantidad){
         double saldo_final=c.getAlCuentas().get(nro_cuent).getSaldo() +cantidad;
         c.getAlCuentas().get(nro_cuent).setSaldo(saldo_final); 
+        return saldo_final;
     }
-    public void  mcSacar(int cantidad){}
+    public double  mcSacar(CCliente c, int nro_cuent,double cantidad, int nro_tarjeta,char x){
+        double saldo_cuenta=c.getAlCuentas().get(nro_cuent).getSaldo();
+        double lim_cuenta=c.getAlCuentas().get(nro_cuent).getLimite();
+        double lim_cajero=c.getAlCuentas().get(nro_cuent).getAlTarjetas().get(nro_tarjeta).getLimit_caja();
+        double lim_online=c.getAlCuentas().get(nro_cuent).getAlTarjetas().get(nro_tarjeta).getLimit_onLine();
+        double resultado=0.0;
+        switch(x){
+            case 'c':
+                if((cantidad<lim_cajero)){
+                    resultado=saldo_cuenta-cantidad;
+                    if(resultado>lim_cuenta)
+                        return resultado;
+                    else 
+                        return 0.0;
+                }
+                break;
+            case 'o':
+                if((cantidad<lim_online)){
+                    resultado=saldo_cuenta-cantidad;
+                    if(resultado>lim_cuenta)
+                        return resultado;
+                    else 
+                        return 0.0;
+                }
+                break;           
+        }//end switch
+        return resultado;
+    }
     
 }
